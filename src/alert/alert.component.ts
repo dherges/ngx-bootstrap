@@ -2,6 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AlertConfig } from './alert.config';
 import { OnChange } from '../utils/decorators';
 
+
+export type AlertType =  'success' | 'info' | 'warning' | 'danger';
+
 @Component({
   selector: 'alert,ngx-alert',
   template: `
@@ -20,7 +23,7 @@ import { OnChange } from '../utils/decorators';
 })
 export class AlertComponent implements OnInit {
   /** Alert type. Provides one of four bootstrap supported contextual classes: `success`, `info`, `warning` and `danger` */
-  @Input() public type: string = 'warning';
+  @Input() public type: AlertType = 'warning';
   /** If set, displays an inline "Close" button */
   @OnChange()
   @Input() public dismissible: boolean = false;
